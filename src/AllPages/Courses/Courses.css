@@ -1,0 +1,73 @@
+
+.course-container{
+    overflow: hidden;
+}
+
+
+.lefttopicbar{
+    margin-top: 20px;
+    width: 80%;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    
+}
+
+
+.topicName{
+    height: 90px;
+    padding: 20px;
+    border-radius: 100px;
+    background-color: #8bffae;
+    box-shadow: 5px 10px 18px #6e6b6b;
+    cursor: pointer;
+}
+
+.topicName:hover{
+    background-color: rgb(43, 189, 175);
+}
+
+
+
+.topics-area{
+    display: grid;
+    grid-template-columns: repeat(3,2fr);
+    margin-left: -70px;
+    
+   
+}
+
+
+.grid-tepmplate{
+    /* display: grid;
+    grid-template-columns: repeat(3,1fr); */
+    border: 1px solid rgb(162, 160, 158);
+    width: 350px;
+    height: 440px;
+    background-color: rgb(225, 218, 218);
+    margin-bottom: 20px;
+    margin-top: 20px;
+    box-shadow: 5px 10px 18px #a49e9e;
+    
+   
+}
+
+.grid-tepmplate img{
+
+    height: 200px;
+    width: 345px;
+    border: 1px solid  rgb(252, 232, 217);
+
+}
+
+.btn{
+  border: none;
+  background-color: #e00ce0;
+  background-image: linear-gradient(0deg, #ae8eae 0%, #0fe3fb 100%);
+  font-family: 'Fasthand', cursive;
+  font-family: 'Pacifico', cursive;
+  font-family: 'Vollkorn', serif;
+  font-weight: 700;
+
+}
+
+

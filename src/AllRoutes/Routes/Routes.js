@@ -6,6 +6,7 @@ import Blog from "../../AllPages/Blog/Blog";
 import FAQ from "../../AllPages/FAQ/FAQ";
 import Login from "../../AllPages/Login/Login";
 import Register from "../../AllPages/Register/Register";
+import Coursedetails from "../../AllPages/Coursedetails/Coursedetails";
 
 
 export const routes = createBrowserRouter([
@@ -36,8 +37,16 @@ export const routes = createBrowserRouter([
             {
                 path:'/Register',
                 element: <Register></Register>
+            },
+            {
+                path:'/Courses/:id',
+                element: <Coursedetails></Coursedetails>,
+                loader: ({params}) => fetch(`http://localhost:5000/courses/${params.id}`)
             }
+        ]       
+    },
 
-        ]
-    }
+    { path: '*',
+    element: <div><h2 className='mt-5'>404 ! This route is not found</h2></div> 
+   }
 ]);

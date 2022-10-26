@@ -1,0 +1,87 @@
+
+
+
+.font-family{
+    font-family: 'Fasthand', cursive;
+    font-family: 'Pacifico', cursive;
+    font-family: 'Vollkorn', serif;
+    overflow: hidden;
+
+}
+
+.login-img{
+    width: 100%;
+    box-shadow: 5px 10px 18px #9b9797;
+}
+
+
+.login-form{
+    background-color: #D9AFD9;
+    background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);
+    width: 70%;
+    border-radius: 15px;
+    box-shadow: 5px 10px 18px #9b9797;
+    margin-left: 100px;
+    margin-top: -20px;
+    padding-top: 10px;
+    
+}
+
+.login-form h5{
+    padding-right: 180px;
+    margin-top: 40px;
+}
+
+.input-box{
+    box-shadow: 5px 10px 18px #9b9797;
+}
+
+.btnsign{
+background: #b92b27;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #1565C0, #b92b27);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #1565C0, #b92b27); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+.btncontainer{
+
+    border-radius: 100px;
+    width: 300px;
+    background: #FC5C7D;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #6A82FB, #FC5C7D);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #6A82FB, #FC5C7D); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+}
+
+
+
+@media only screen and (min-width: 320px) and (max-width: 480px){
+
+    .login-form{
+        margin-left: 70px;
+        margin-top: 10px;
+    }
+     
+    /* .login-form h5{
+        margin-top: 90px;
+    }
+    .input-box{
+        
+    }
+     */
+
+
+    
+}
+
+@media only screen and (min-width: 481px) and (max-width: 768px){
+
+    .login-form{
+        margin-left: 70px;
+        margin-top: 30px;
+        padding-top: 2px;
+    }
+
+    
+      
+}
