@@ -1,31 +1,40 @@
 import React from 'react';
 import {MDBIcon,MDBCheckbox}from 'mdb-react-ui-kit';
-import { Container } from 'react-bootstrap';
+import { Container, Form } from 'react-bootstrap';
 import { useContext } from 'react';
 import { AuthContext } from '../../Context/AuthProvider/Authprovider';
+import { useState } from 'react';
 
 const Register = () => {
 
     const {createUser} = useContext(AuthContext);
+    const [error , setError] = useState('');
 
     const handleRegister = event =>
     {
        event.preventDefault();
        const form = event.target;
        const name = form.name.value;
+       const photo = form.photo.value;
        const email = form.email.value;
        const password = form.password.value;
-       console.log(name,email,password);
+       console.log(name,email,password,photo);
 
 
        createUser(email,password)
         .then(result =>{
             const user = result.user;
             console.log(user);
-            form.reset();
+            setError('');
+            Form.reset();
+
+            
 
         })
-        .catch(error => console.error(error))
+        .catch(error => {
+          console.error(error);
+          setError(error.message);
+        })
 
     }
 
@@ -36,43 +45,39 @@ const Register = () => {
     <Container className='my-5'>
 
       
-            <form onSubmit={handleRegister} md='10' lg='6' className='order-2 order-lg-1 d-flex flex-column align-items-center'>
+            <Form onSubmit={handleRegister} md='10' lg='6' className='order-2 order-lg-1 d-flex flex-column align-items-center'>
 
               <p classNAme="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
 
-              <div className="d-flex flex-row align-items-center mb-4 ">
+              <Form.Group className="d-flex flex-row align-items-center mb-4">
                 <MDBIcon fas icon="user me-3" size='lg'/>
-                <input type='text' className="form-control" name='name' placeholder="Your Name" required/>
-                
-              </div>
+                <Form.Control type="text" name="name" placeholder="Your Name" required/>
+              </Form.Group>
+            
+              
+              <Form.Group className="d-flex flex-row align-items-center mb-4">
+                <MDBIcon fas icon="camera me-3" size='lg'/>
+                <Form.Control type="text" name="photo" placeholder="Photo URL" required/>
+              </Form.Group>
             
 
-              <div className="d-flex flex-row align-items-center mb-4">
+              <Form.Group className="d-flex flex-row align-items-center mb-4">
                 <MDBIcon fas icon="envelope me-3" size='lg'/>
-                <input type="email"className="form-control"  name='email'placeholder="Enter email" required/>
-              </div>
+                <Form.Control type="email" name="email" placeholder="Enter email" required/>
+              </Form.Group>
 
-              <div className="d-flex flex-row align-items-center mb-4">
+              <Form.Group className="d-flex flex-row align-items-center mb-4">
                 <MDBIcon fas icon="lock me-3" size='lg'/>
-                <input type="password" className="form-control" name='password' placeholder="Enter password" required/>
-              </div>
+                <Form.Control type="password" name="password" placeholder="Enter password" required/>
+              </Form.Group>
 
-              {/* <div className="d-flex flex-row align-items-center mb-4">
-                <MDBIcon fas icon="key me-3" size='lg'/>
-                <MDBInput label='Repeat your password' id='form4' type='password'/>
-              </div> */}
-
-              <div className='mb-4'>
-                <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Subscribe to our newsletter' />
-              </div>
 
               <button className='mb-4 btn btn-primary' size='lg'>Register</button>
+              <p className='text-danger'>{error}</p>
 
-            </form>
+            </Form>
 
-            {/* <MDBCol md='10' lg='6' className='order-1 order-lg-2 d-flex align-items-center'>
-              <MDBCardImage src='https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp' fluid/>
-            </MDBCol> */}
+      
 
 
     </Container>

@@ -33,7 +33,7 @@ const Header = () => {
              
             <Nav className='navstyle w-100'>  
                   <NavLink eventkey="1" className='ps-4' as={Link} to="/">Home</NavLink>
-                  <NavLink eventkey="2" className='ps-4' as={Link} to="/Courses" >Course</NavLink>
+                  <NavLink eventkey="2" className='ps-4' as={Link} to="/courses" >Course</NavLink>
                   <NavLink eventkey="3" className='ps-4' as={Link} to="/Blog" >Blog</NavLink>
                   <NavLink eventkey="4" className='ps-4' as={Link} to="/FAQ" >FAQ</NavLink>
                   <Nav className='sidebar d-flex'>

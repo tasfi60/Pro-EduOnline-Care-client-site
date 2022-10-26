@@ -1,12 +1,13 @@
 import React, { useContext } from 'react';
 import { Container,Row,Col} from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate,useLocation } from 'react-router-dom';
 import Logo from '../../images/login.png';
 import {MDBIcon} from 'mdb-react-ui-kit';
 import './Login.css';
 import { AuthContext } from '../../Context/AuthProvider/Authprovider';
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
+import { useState } from 'react';
 
 const Login = () => {
 
@@ -15,6 +16,12 @@ const Login = () => {
 
     const googleProvider = new GoogleAuthProvider();
     const githubprovider = new GithubAuthProvider();
+
+
+    const [error , setError] = useState('');
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || '/';
 
 
     const handleGithubSignIn = () => {
@@ -57,10 +64,14 @@ const Login = () => {
             const user = result.user;
             console.log(user);
             form.reset();
-            navigate('/')
+            setError('');
+            navigate(from, {replace:true});
 
         })
-        .catch(error => console.error(error))
+        .catch(error => {
+          console.error(error);
+          setError(error.message);
+        })
 
     }
 
@@ -99,6 +110,7 @@ const Login = () => {
   
             {/* <Button className="mb-4 w-50" size="lg">Sign in</Button> */}
             <button className='mb-4 w-50 btn btn-primary' size='lg'>Log in</button>
+            <p className='text-danger'>{error}</p>
         </form>
 
 

@@ -42,6 +42,7 @@ const AuthProvider = ({ children }) => {
             console.log('inside auth state change', currentUser);
 
                 setUser(currentUser);
+                setLoading(false);
             
           
         });

@@ -5,63 +5,76 @@ import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/CardGroup';
 import './Courses.css';
-import {  useNavigate } from 'react-router-dom';
+import {  useNavigate ,Link,useLoaderData } from 'react-router-dom';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import Coursedetails from '../Coursedetails/Coursedetails';
 
 
 const Courses = () => {
 
-    const[course, setCourse]=useState([]);
-    const navigate = useNavigate();
 
-    useEffect( () =>{
-        fetch('http://localhost:5000/courses')
-        .then(res => res.json())
-        .then(data => setCourse(data))
-    }, [])
+  const courses = useLoaderData();
+
+    // const[course, setCourse]=useState([]);
+    // // const navigate = useNavigate();
+
+    // useEffect( () =>{
+    //     fetch('http://localhost:5000/courses')
+    //     .then(res => res.json())
+    //     .then(data => setCourse(data))
+    // }, [])
+    
+    // const {id} = course;
 
 
 
-    function handleNavigate() {
-      navigate(`/Courses/${course.id}`);
-  }
+
+  //   function handleNavigate() {
+  //     navigate(`/courses/${course.id}`);
+  // }
 
     return (
         <div className='course-container'>
       <Row>
-        <Col sm={4}>{
-            course.map(cname => 
-            <div className='lefttopicbar'> 
-                <div className='topicName'>
-                  <h4>{cname.name}</h4>
-                </div > 
-            </div > 
-                )
+        <Col sm={3} className='sideBar'>
+       {
+            courses.map(t => 
+            
+          <div className='lefttopicbar'> 
+              <div className='topicName'>
+                <h5><Link to={`/courses/${t.id}`} className='topicbtn'>{t.name}</Link></h5> 
+              </div> 
+          </div> 
+            )    
 
         }
              
         </Col>
         
-        <Col sm={8}>
-            <div className='topics-area'>
+        <Col sm={9} >
+            <div className='topics-area mx-4 my-5'>
 
 
             {
-            course.map(cname => 
-            <div className='grid-tepmplate' key={cname.id}>
-            <img src={cname.image} alt="" />
-            <h5>{cname.name}</h5>
-            <small>{cname.description}</small>
-            <p>Price: {cname.Price}</p>
-            <button  className='w-50 btn' onClick={handleNavigate}>
-                Purchase
-            </button>
-            
-            </div>
-            )
 
-        }
+
+            courses.map(cname => <Coursedetails key={cname.id} cname ={cname} ></Coursedetails>)
+
+            // course.map(cname => 
+            // <div className='grid-tepmplate' key={cname.id}>
+            // <img src={cname.image} alt="" />
+            // <h5>{cname.name}</h5>
+            // <small>{cname.description}</small>
+            // <p>Price: {cname.Price}</p>
+            // <button  className='w-50 btn'><Link to={`/courses/${id}`}>
+            //     Purchase</Link>
+            // </button>
+            
+            // </div>
+            // )
+
+          }
 
 
             </div>
