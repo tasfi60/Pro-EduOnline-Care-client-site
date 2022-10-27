@@ -1,7 +1,9 @@
 
 
 Project Name : Pro EduOnline Care
+
 Live Website Link: https://proeducare-fa841.web.app/
+
 Project Description:
             
             1.This project is a simple React web application for a learning platform that includes authentication.
@@ -19,6 +21,10 @@ Project Description:
             13.Every page was responsive and accurately routed.
             14.Implemented dark and light theme to whole site.
             15.In this project, page to pdf conversion was also done.
+            16.For this project, we have used Firebase, React frameworks etc.
 
            
+
+
+
 
