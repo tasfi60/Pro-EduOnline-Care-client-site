@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../../images/favicon.ico';
 import Container from 'react-bootstrap/Container';
@@ -22,17 +22,33 @@ const Header = () => {
        .then( () => {})
        .catch( error => console.error(error))
     }
+   
 
+    const [theme, setTheme] = useState('navcontainer');
+
+  const toggleTheme = () => {
+    if (theme === 'light') {
+      setTheme('dark');
+    } 
+    else  {
+      setTheme('light');
+    }
+  };
+  
+  useEffect(() => {
+    document.body.className = theme;
+  }, [theme]);
 
     
     return (
-      <Navbar collapseOnSelect expand="lg" variant='light' className='navcontainer pt-4 pb-4'>  
-        {/* <Container>   */}
+     
+      <div className={`Header ${theme}`}>
+      <Navbar collapseOnSelect expand="lg" variant='light' className='pt-4 pb-4'>  
         <img className='image' src={logo} alt="" />
           <Navbar.Brand href="#home" className='ms-3 fs-3 mt-3 name'>Pro EduOnline Care</Navbar.Brand>  
           <Navbar.Toggle aria-controls="navbarScroll"  data-bs-target = "#navbarScroll" />  
           <Navbar.Collapse id="navbarScroll">  
-             
+          
             <Nav className='navstyle w-100'>  
                   <NavLink eventkey="1" className='ps-4' as={Link} to="/">Home</NavLink>
                   <NavLink eventkey="2" className='ps-4' as={Link} to="/courses" >Course</NavLink>
@@ -67,17 +83,19 @@ const Header = () => {
                     }
                 
                      
-                     
+                <button onClick={toggleTheme} className='toggle-btn'>Toggle</button>
                        
                 
                   </Nav>
                   
             </Nav>  
+         
 
           </Navbar.Collapse>  
         {/* </Container>   */}
+       
       </Navbar>  
-     
+      </div>
     );
 };
 
