@@ -23,7 +23,7 @@ export const routes = createBrowserRouter([
             },
             {
                 path:'/courses',
-                loader: () => fetch ('http://localhost:5000/courses'),
+                loader: () => fetch ('https://pro-educare-server.vercel.app/courses'),
                 element: <Courses></Courses>
             },
             {
@@ -45,18 +45,14 @@ export const routes = createBrowserRouter([
             {
                 path:'/courses/:id',
                 loader: async ({params}) => {
-                    return fetch(`http://localhost:5000/courses/${params.id}`)
+                    return fetch(`https://pro-educare-server.vercel.app/courses/${params.id}`)
                      
                 },
                 element: <SingleCourseDetails></SingleCourseDetails>
             },
             {
                 path:'/checkout/:id',
-                // loader: async ({params}) => {
-                //     return fetch(`http://localhost:5000/courses/${params.id}`)
-                     
-                // },
-                loader: ({params}) => fetch(`http://localhost:5000/courses/${params.id}`),
+                loader: ({params}) => fetch(`https://pro-educare-server.vercel.app/courses/${params.id}`),
                 element: <PrivateRoute><Checkout></Checkout></PrivateRoute>
             }
         ]       
