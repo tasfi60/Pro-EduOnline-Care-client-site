@@ -5,7 +5,7 @@ import './Footer.css';
 
 const Footer = () => {
     return (
-        <CDBFooter className="shadow footer-container">
+        <CDBFooter className="shadow footer-container mt-5">
       <CDBBox
         display="flex"
         justifyContent="between"

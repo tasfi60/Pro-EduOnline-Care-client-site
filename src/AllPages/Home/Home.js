@@ -6,12 +6,12 @@ import './Home.css';
 const Home = () => {
     return (
         <div >
-             <Card className="bg-light text-dark fw-bolder">
+             <Card className="home-container text-dark fw-bolder">
                     <Card.Img className='bg-img' src={logo} alt="" />
                     <Card.ImgOverlay>
                      <Card.Text className='text-container'>
                      <Card.Title className='fs-4 fw-bold'>Welcome to Pro EduOnline Care</Card.Title>
-                       Quiz-Ace is a web-based Audience Engagement Cloud Platform for hosting interactive trivia quizzes at in-person, virtual, and hybrid events. No app install is required.
+                     Whether you want to learn or to share what you know, you’ve come to the right place. As a global destination for online learning, we connect people through knowledge.
                      
                      </Card.Text>
                     </Card.ImgOverlay>

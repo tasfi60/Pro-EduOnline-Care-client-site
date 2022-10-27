@@ -41,10 +41,10 @@ const AuthProvider = ({ children }) => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             console.log('inside auth state change', currentUser);
 
+            if (currentUser === null || currentUser.emailVerified || currentUser.uid) {
                 setUser(currentUser);
-                setLoading(false);
-            
-          
+            }
+            setLoading(false);
         });
 
         return () => {
@@ -62,6 +62,7 @@ const AuthProvider = ({ children }) => {
         updateUserProfile,
         verifyEmail,
         createUser,
+        setUser,
         signIn
     };
 

@@ -22,6 +22,8 @@ const Header = () => {
        .then( () => {})
        .catch( error => console.error(error))
     }
+
+
     
     return (
       <Navbar collapseOnSelect expand="lg" variant='light' className='navcontainer pt-4 pb-4'>  
@@ -40,7 +42,7 @@ const Header = () => {
           
                   {
                         user?.photoURL?
-                        <Image style={{height:'30px', marginRight:'10px'}} 
+                        <Image data-toggle="tooltip" title={user?.displayName} style={{height:'30px', marginRight:'10px'}} 
                                roundedCircle
                               src={user?.photoURL}>
                         </Image> 
@@ -52,8 +54,8 @@ const Header = () => {
                       user?.uid?
                       <>
                        <span>{user?.displayName}</span>
-                       <FaSignOutAlt className='mt-3 ms-3 logout-btn' onClick={handleLogOut}></FaSignOutAlt>
-                
+                       <NavLink onClick={handleLogOut} className='ms-3 logout-btn'>Log Out<FaSignOutAlt className=''></FaSignOutAlt></NavLink>
+                       
                        </>
                       :
 

@@ -1,0 +1,10 @@
+
+
+.faq-style{
+background: #a6b96386;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #7ec015b6, #2eb927);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #d6fc8bbb, #f5d7b5);
+font-family: 'Fasthand', cursive;
+font-family: 'Pacifico', cursive;
+font-family: 'Vollkorn', serif;
+}

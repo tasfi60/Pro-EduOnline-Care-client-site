@@ -1,11 +1,20 @@
 import React from 'react';
+import { useLoaderData } from 'react-router-dom';
+import './Checkout.css';
+// import useLoaderData from? 'react-router?-dom';
 
 const Checkout = () => {
+    const checkout = useLoaderData();
     return (
-        <div className='col-md-4 container bg-default border border-5 my-5 bg-info bg-gradient'>  
-        <h4 class = "my-4">  
-                Please,Fill the Form   
-        </h4>   
+
+
+       <div>
+        {
+            checkout.map(chkout => 
+                <div className='col-md-4 container bg-default border border-5 my-5 px-5 checkout-container'>  
+        <h5 className = 'my-4'>  
+              <b>Course Name: </b>{chkout.name}
+        </h5>   
         <form>  
         <div className='form-row'>  
             <div className = 'col-md-6 form-group'>  
@@ -23,12 +32,12 @@ const Checkout = () => {
                     </div>  
                 </div>  
             </div>  
-            <div className = 'form-group'>  
+            <div className = 'mt-4 form-group'>  
             <label for = "email"> Email </label>  
         <input type = "email" className = 'form-control' id = "email" placeholder = "you@example.com" required/>  
             </div> <div className='form-group'>  
         <label for = "adress">Address </label>  
-                <input type = "text" className = 'form-control' id = "adress" placeholder = "1234 Main Street" required/>  
+                <input type = "text" className = 'form-control mb-4' id = "adress" placeholder = "1234 Main Street" required/>  
     <div className = 'invalid-feedback'>  
                     Please enter your shipping address.  
                 </div>  
@@ -38,17 +47,17 @@ const Checkout = () => {
         <label for = "country"> Country </label>  
             <select type = "text" className='form-control' id = "country">  
             <option value> Choose... </option>  
-        <option> United Kingdom </option>  
+        <option> Bangladesh </option>  
                     </select>  
             <div class = "invalid-feedback">  
-Please select a valid country.  
+                Please select a valid country.  
                     </div>  
                 </div>  
         <div class = "col-md-4 form-group">  
             <label for = "city"> City </label>  
         <select type = "text" class = "form-control" id = "city">  
             <option value> Choose... </option>  
-                    <option> London </option>  
+                    <option> Chittagong </option>  
                     </select>  
             <div className = 'invalid-feedback'>  
                 Please provide a valid city.  
@@ -58,7 +67,7 @@ Please select a valid country.
     <label for = "postcode"> Postcode </label>  
         <select type = "text" className = 'form-control' id = "postcode">  
         <option value> Choose... </option>  
-            <option> NW6 2LS </option>  
+            <option> 4321 </option>  
                     </select>  
         <div className = 'invalid-feedback'>  
                         Postcode required.  
@@ -67,18 +76,18 @@ Please select a valid country.
             </div>  
             
           
-            <h4 className = 'mb-4'> Payment </h4>  
+            <h4 className = 'mb-4 mt-4'> Payment </h4>  
             <div className = 'form-check'>  
-                <input type = "radio" className = 'form-check-input' id = "credit" name = "payment-method" checked required/>  
+                <input type = "radio" className = 'form-check-input' id = "credit" name = "payment-method"  required/>  
                 <label for = "credit" className = 'form-check-label'> Credit Card </label>  
             </div>  
             <div className = 'form-check'>  
                 <input type = "radio" className = 'form-check-input' id = "debit" name = "payment-method" required/>  
-                <label for = "debit" className = 'form-check-label'> Debit Card </label>  
+                <label for = "debit" className = 'form-check-label'> Nagad </label>  
             </div>  
             <div className = 'form-check'>  
                 <input type = "radio" className = 'form-check-input' id = "paypal" name = "payment-method" required/>  
-                <label for = "paypal" className = 'form-check-label'> PayPal </label>  
+                <label for = "paypal" className = 'form-check-label'> Bkash </label>  
             </div>  
             <div className='row mt-4'>  
             <div className = 'col-md-6 form-group'>  
@@ -114,10 +123,23 @@ Please select a valid country.
             </div>  
           
                
-                <button className='btn btn-primary bt-lg btn-block' type = "submit"> Continue to Checkout </button>  
+                <button className='btn btn-primary bt-lg btn-block mb-5 mt-4 text-dark' type = "submit">Checkout Now</button>  
               
         </form>  
     </div>  
+            
+
+
+
+)
+        }
+
+
+
+       </div>
+
+      
+     
     );
 };
 

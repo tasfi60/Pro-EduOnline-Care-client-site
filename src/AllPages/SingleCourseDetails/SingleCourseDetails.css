@@ -1,5 +1,7 @@
 
-
+.pdfbtn{
+    cursor: pointer;
+}
 
 .card-container{
     width: 50%;

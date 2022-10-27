@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import { Container,Row,Col} from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
+import toast from 'react-hot-toast';
+import Form from 'react-bootstrap/Form';
 import { Link, useNavigate,useLocation } from 'react-router-dom';
 import Logo from '../../images/login.png';
 import {MDBIcon} from 'mdb-react-ui-kit';
@@ -11,12 +13,11 @@ import { useState } from 'react';
 
 const Login = () => {
 
-    const {providerLogin,signIn} = useContext(AuthContext);
+    const {providerLogin,signIn,setLoading,setUser} = useContext(AuthContext);
     const navigate = useNavigate();
 
     const googleProvider = new GoogleAuthProvider();
-    const githubprovider = new GithubAuthProvider();
-
+    const githubProvider = new GithubAuthProvider();
 
     const [error , setError] = useState('');
     const location = useLocation();
@@ -24,18 +25,23 @@ const Login = () => {
     const from = location.state?.from?.pathname || '/';
 
 
-    const handleGithubSignIn = () => {
 
-      providerLogin(githubprovider)
+    const handleGithubSignIn = () =>{
+
+      providerLogin(githubProvider)
       .then(result =>{
           const user = result.user;
           console.log(user);
+          setUser(user);
+          navigate(from, {replace:true});
 
       })
       .catch(error => console.error(error))
 
+  }
 
-    }
+
+    
 
     const handleGoogleSignIn = () =>{
 
@@ -43,6 +49,8 @@ const Login = () => {
         .then(result =>{
             const user = result.user;
             console.log(user);
+            setUser(user);
+            navigate(from, {replace:true});
 
         })
         .catch(error => console.error(error))
@@ -50,31 +58,55 @@ const Login = () => {
     }
 
 
-    const handleLogin = event =>
-    {
-       event.preventDefault();
-       const form = event.target;
-       const email = form.email.value;
-       const password = form.password.value;
-       console.log(email,password);
+    // const handleLogin = event =>
+    // {
+    //    event.preventDefault();
+    //    const form = event.target;
+    //    const email = form.email.value;
+    //    const password = form.password.value;
+    //    console.log(email,password);
 
 
-       signIn(email,password)
-        .then(result =>{
-            const user = result.user;
-            console.log(user);
-            form.reset();
-            setError('');
-            navigate(from, {replace:true});
+    //    signIn(email,password)
+    //     .then(result =>{
+    //         const user = result.user;
+    //         console.log(user);
+    //         form.reset();
+    //         setError('');
+    //         navigate(from, {replace:true});
 
-        })
-        .catch(error => {
-          console.error(error);
-          setError(error.message);
-        })
+    //     })
+    //     .catch(error => {
+    //       console.error(error);
+    //       setError(error.message);
+    //     })
 
-    }
+    // }
+    const handleSubmit = event => {
+      event.preventDefault();
+      const form = event.target;
+      const email = form.email.value;
+      const password = form.password.value;
 
+      signIn(email, password)
+          .then(result => {
+              const user = result.user;
+              setUser(user);
+              console.log(user);
+              form.reset();
+              setError('');
+              
+               navigate(from, {replace: true});
+              
+              })
+          .catch(error => {
+              console.error(error)
+              setError(error.message);
+          })
+          .finally(() => {
+              setLoading(false);
+          })
+  }
 
     return (
         <Container fluid className="p-2 my-5 font-family">
@@ -91,7 +123,7 @@ const Login = () => {
              <Col col='4' md='6'>
 
       <div className='login-form'>
-        <form onSubmit={handleLogin} md='10' lg='6' className=' order-2 order-lg-1 d-flex flex-column align-items-center'>
+        <form onSubmit={handleSubmit} md='10' lg='6' className=' order-2 order-lg-1 d-flex flex-column align-items-center'>
 
           <div className="d-flex flex-row align-items-center mb-4 mt-5">
             <MDBIcon fas icon="envelope me-3" size='lg'/>
@@ -112,6 +144,7 @@ const Login = () => {
             <button className='mb-4 w-50 btn btn-primary' size='lg'>Log in</button>
             <p className='text-danger'>{error}</p>
         </form>
+
 
 
         <div className="divider d-flex align-items-center my-4">
@@ -142,3 +175,5 @@ const Login = () => {
 };
 
 export default Login;
+
+
