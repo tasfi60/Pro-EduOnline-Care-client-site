@@ -24,7 +24,7 @@ const Header = () => {
     }
    
 
-    const [theme, setTheme] = useState('navcontainer');
+    const [theme, setTheme] = useState('');
 
   const toggleTheme = () => {
     if (theme === 'light') {
