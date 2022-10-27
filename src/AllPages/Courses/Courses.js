@@ -17,6 +17,7 @@ const Courses = () => {
    
     return (
         <div className='course-container'>
+        <h5 className='mt-4 ms-1 fs-3 fw-bold ps-5 shadow'>Explore All Courses</h5>
       <Row>
         <Col sm={3} className='sideBar'>
        {
@@ -35,25 +36,12 @@ const Courses = () => {
         
         <Col sm={9} >
             <div className='topics-area mx-4 my-5'>
-
-
+ 
+            
             {
 
-
-            courses.map(cname => <Coursedetails key={cname.id} cname ={cname} ></Coursedetails>)
-
-            // course.map(cname => 
-            // <div className='grid-tepmplate' key={cname.id}>
-            // <img src={cname.image} alt="" />
-            // <h5>{cname.name}</h5>
-            // <small>{cname.description}</small>
-            // <p>Price: {cname.Price}</p>
-            // <button  className='w-50 btn'><Link to={`/courses/${id}`}>
-            //     Purchase</Link>
-            // </button>
             
-            // </div>
-            // )
+            courses.map(cname => <Coursedetails key={cname.id} cname ={cname} ></Coursedetails>)
 
           }
 
