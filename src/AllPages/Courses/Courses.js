@@ -6,8 +6,6 @@ import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/CardGroup';
 import './Courses.css';
 import {  useNavigate ,Link,useLoaderData } from 'react-router-dom';
-import { useState } from 'react';
-import { useEffect } from 'react';
 import Coursedetails from '../Coursedetails/Coursedetails';
 
 
