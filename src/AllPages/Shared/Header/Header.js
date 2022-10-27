@@ -58,7 +58,7 @@ const Header = () => {
           
                   {
                         user?.photoURL?
-                        <Image data-toggle="tooltip" title={user?.displayName} style={{height:'30px', marginRight:'10px'}} 
+                        <Image data-toggle="tooltip" title={user?.displayName} className='display-img' 
                                roundedCircle
                               src={user?.photoURL}>
                         </Image> 
