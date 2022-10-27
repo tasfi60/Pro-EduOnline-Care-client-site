@@ -44,7 +44,6 @@ const SingleCourseDetails = () => {
                  
                   <Card.Title><b>Duration: {details.duration}</b></Card.Title>
                   <Card.Title><b>Price: {details.price}</b></Card.Title>
-                  <Button className='access-btn'>Access Now </Button>
                   <Button className='access-btn1'><Link to={`/checkout/${details.category_id}`} className='navigate-link'>Get Premium Access</Link></Button>
                 </Card.Body>
                    </Card>

@@ -16,24 +16,7 @@ const Courses = () => {
 
   const courses = useLoaderData();
 
-    // const[course, setCourse]=useState([]);
-    // // const navigate = useNavigate();
-
-    // useEffect( () =>{
-    //     fetch('http://localhost:5000/courses')
-    //     .then(res => res.json())
-    //     .then(data => setCourse(data))
-    // }, [])
-    
-    // const {id} = course;
-
-
-
-
-  //   function handleNavigate() {
-  //     navigate(`/courses/${course.id}`);
-  // }
-
+   
     return (
         <div className='course-container'>
       <Row>

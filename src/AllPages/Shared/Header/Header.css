@@ -43,6 +43,7 @@
 
 
 
+/* for mobile */
 
 @media only screen and (min-width: 320px) and (max-width: 480px){
 
@@ -58,6 +59,7 @@
     
 }
 
+/* for tablet */
 @media only screen and (min-width: 481px) and (max-width: 768px){
 
     .sidebar{
@@ -65,11 +67,26 @@
     }
 
     .navstyle{
-        /* background-color: cornflowerblue;
-        margin-left: -5px; */
         margin-left: 0px;
         background-color: rgba(248, 255, 168, 0.502);
     }
     
 
+}
+
+/* for desktop */
+@media only screen and (min-width: 1025px) and (max-width: 1200px){
+
+    .sidebar{
+        margin-left: 50px;
+    }
+
+    .navstyle{
+        margin-left: 0px;
+        background-color: rgba(248, 255, 168, 0.502);
+    }
+    
+    
+    
+      
 }

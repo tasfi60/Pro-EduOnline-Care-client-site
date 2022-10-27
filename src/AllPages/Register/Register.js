@@ -5,16 +5,15 @@ import Form from 'react-bootstrap/Form';
 import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider/Authprovider';
-// import useTitle from '../../hooks/useTitle';
 import { FaGoogle, FaGithub, FaEnvelope, FaLock, FaUser, FaCameraRetro } from "react-icons/fa";
 
-import './Register';
+import './Register.css';
 
 const Register = () => {
     const [error, setError] = useState('');
     const [accepted, setAccepted] = useState(false);
     const { createUser, updateUserProfile, verifyEmail } = useContext(AuthContext);
-    // useTitle('Register')
+ 
 
 
     const handleSubmit = event => {
@@ -64,47 +63,14 @@ const Register = () => {
     }
 
     return (
-        // <Form onSubmit={handleSubmit} className="d-flex flex-column justify-content-center align-items-center my-3 mx-5 px-3 py-5 border rounded-3 form">
-        //     <Form.Group className="mb-3" controlId="formBasicEmail">
-        //         < Form.Label > Your Name</Form.Label >
-        //         <Form.Control name="name" type="text" placeholder="Your Name" />
-        //     </Form.Group >
-        //     <Form.Group className="mb-3" controlId="formBasicEmail">
-        //         <Form.Label>Photo URL</Form.Label>
-        //         <Form.Control name="photoURL" type="text" placeholder="Phot URL" />
-        //     </Form.Group>
 
-        //     <Form.Group className="mb-3" controlId="formBasicEmail">
-        //         <Form.Label>Email address</Form.Label>
-        //         <Form.Control name="email" type="email" placeholder="Enter email" required />
-        //     </Form.Group>
-
-        //     <Form.Group className="mb-3" controlId="formBasicPassword">
-        //         <Form.Label>Password</Form.Label>
-        //         <Form.Control name="password" type="password" placeholder="Password" required />
-        //     </Form.Group>
-        //     <Form.Group className="mb-3" controlId="formBasicCheckbox">
-        //         <Form.Check
-        //             type="checkbox"
-        //             onClick={handleAccepted}
-        //             label={<>Accept <Link to="/terms">Terms and conditions</Link></>} />
-        //     </Form.Group>
-        //     <Button variant="primary" type="submit" disabled={!accepted}>
-        //         Register
-        //     </Button>
-        //     <Form.Text className="text-danger">
-        //         {error}
-        //     </Form.Text>
-        // </Form >
-
-        <div className="container-fluid vh-100">
-            <div className="">
-                <div className="rounded d-flex justify-content-center">
-                    <div className="form col-md-4 col-sm-12 shadow-lg p-5 rounded  mb-5 " >
+        <div className="container">
+            <div>
+                <div className="rounded d-flex justify-content-center register-box">
+                        <Form onSubmit={handleSubmit} className="d-flex flex-column justify-content-center align-items-center my-3 px-3 py-5  border shadow-lg rounded-3 bg-light register-box">
                         <div className="text-center">
-                            <h3 className="text-white fw-bold fs-2">Welcome to Register Page!!</h3>
+                            <h5 className="text-dark fw-bold fs-4">Welcome to Register Page</h5>
                         </div>
-                        <Form onSubmit={handleSubmit} className="d-flex flex-column justify-content-center align-items-center my-3 px-3 py-5 mx-5 border shadow-lg rounded-3 bg-light ">
                             <div className="p-4">
                                 <div className="input-group mb-3">
                                     <span className="input-group-text bg-light"><FaUser></FaUser> </span>
@@ -139,7 +105,6 @@ const Register = () => {
                                 <p className='mt-3'>Already an User? <Link to="/login"> <span className='fw-bold'>Login</span></Link></p>
                             </div>
                         </Form>
-                    </div>
                 </div>
             </div>
         </div>

@@ -38,3 +38,16 @@
     text-decoration: none;
     color: black;
 }
+
+
+
+/* for mobile */
+
+@media only screen and (min-width: 320px) and (max-width: 480px){
+
+    .card-container{
+
+        width: 100%;
+
+    }
+}

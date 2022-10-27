@@ -12,6 +12,7 @@
     background-image: linear-gradient(0deg, #e2d6e2 0%, #e1e4b1 100%);
 
 }
+
 .lefttopicbar{
     margin-top: 20px;
     width: 80%;
@@ -85,4 +86,73 @@
 
 }
 
+
+/* for mobile */
+
+@media only screen and (min-width: 320px) and (max-width: 480px){
+
+    
+    
+    .topics-area{
+
+        grid-template-columns: repeat(1,1fr);
+    }
+
+    
+    
+}
+
+/* for tablet */
+
+@media only screen and (min-width: 481px) and (max-width: 768px){
+
+    .topics-area{
+
+        grid-template-columns: repeat(2,1fr);
+        gap: 4px;
+       
+        
+       
+    }
+
+    .topicbtn{
+        font-size: 14px;
+        
+    
+    }
+
+    .sideBar{
+        padding-left:-10px;
+    }
+
+
+    .topicName{
+        width: 180px;
+        margin-left:-20px ;
+    }
+
+}
+
+/* for desktop */
+@media only screen and (min-width: 1025px) and (max-width: 1200px){
+    
+    
+    .topics-area{
+
+        grid-template-columns: repeat(2,1fr);
+        gap: 4px;
+       
+        
+       
+    }
+
+    .topicbtn{
+        font-size: small;
+    
+    }
+
+
+    
+
+}
 
