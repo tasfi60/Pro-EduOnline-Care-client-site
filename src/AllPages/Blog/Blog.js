@@ -1,12 +1,13 @@
 import React from 'react';
 import Accordion from 'react-bootstrap/Accordion';
+import './Blog.css';
 
 
 const Blog = () => {
     return (
-        <div className=' container my-5 py-5'>
+        <div className=' container my-5 py-5 blog-style'>
         <h2>Important Questions</h2>
-        <Accordion defaultActiveKey="0">
+        <Accordion defaultActiveKey="0" className='w-50 container'>
   <Accordion.Item eventKey="0" >
     <Accordion.Header  >what is cors?</Accordion.Header>
     <Accordion.Body>
