@@ -1,10 +1,8 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
 import {  useNavigate } from 'react-router-dom';
 
 
 const Coursedetails = ({cname}) => {
-    // const courses = useLoaderData();
     const {id,image,name,description,Price}= cname;
 
     const navigate = useNavigate();
