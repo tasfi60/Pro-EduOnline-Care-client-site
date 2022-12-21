@@ -1,0 +1,28 @@
+
+.footer-container{
+    background-color: #b3c697;
+    padding: 50px;
+}
+
+.Footer-title{
+    padding-left: 30px;
+    font-weight: 700;
+    font-family: 'Fasthand', cursive;
+    font-family: 'Pacifico', cursive;
+    font-family: 'Vollkorn', serif;
+    font-size: 25px;
+    text-decoration: none;
+}
+
+.tag{
+    text-decoration: none;
+    font-size: 20px;
+    font-family: 'Fasthand', cursive;
+    font-family: 'Pacifico', cursive;
+    font-family: 'Vollkorn', serif;
+    color: black;
+    font-weight: 700;
+    padding-left: 10px;
+
+  
+}
